@@ -16,7 +16,7 @@ on:
 env:
   ROM_URL: https://otafsc.h2os.com/patch/CHN/OnePlus8ProHydrogen/OnePlus8ProHydrogen_15.H.20_020_2007021955/OnePlus8ProHydrogen_15.H.20_OTA_020_all_2007021955_f7beff.zip
   ROM_NAME: OxygenOS
-  TZ: Asia/Shanghai
+  TZ: Asia/Guangdong
 
 jobs:
   build:
