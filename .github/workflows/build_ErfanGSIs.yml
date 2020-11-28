@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://otafsc.h2os.com/patch/CHN/OnePlus8ProHydrogen/OnePlus8ProHydrogen_15.H.20_020_2007021955/OnePlus8ProHydrogen_15.H.20_OTA_020_all_2007021955_f7beff.zip
-  ROM_NAME: OxygenOS
+  ROM_URL: https://ip4165892788.mobgslb.tbcache.com/Firmware/Flyme/meizu17_Pro/8.1.2.2/cn/20200704153422/5fc9f15d/update.zip?ali_redirect_domain=firmware.meizu.com&ali_redirect_ex_ftag=adf6753efeddd59d840434db03a93a1899e629d47932b6f2&ali_redirect_ex_tmining_ts=1595311939&ali_redirect_ex_tmining_expire=3600&ali_redirect_ex_hot=100
+  ROM_NAME: Flyme
   TZ: Asia/Zhejiang
 
 jobs:
