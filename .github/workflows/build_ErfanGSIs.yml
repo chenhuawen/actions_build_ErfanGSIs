@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://ip1994564279.mobgslb.tbcache.com/Firmware/Flyme/meizu17_Pro/8.1.2.4/cn/20200908205339/d4cc2a1c/update.zip?ali_redirect_domain=firmware.meizu.com&ali_redirect_ex_ftag=f2642e11d734612b964c8cf326bcf90c51898f4ecdc73fd3&ali_redirect_ex_tmining_ts=1606642215&ali_redirect_ex_tmining_expire=3600&ali_redirect_ex_hot=100
-  ROM_NAME: Flyme
+  ROM_URL: https://otafsc.h2os.com/patch/CHN/OnePlus8ProHydrogen/OnePlus8ProHydrogen_15.H.20_020_2007021955/OnePlus8ProHydrogen_15.H.20_OTA_020_all_2007021955_f7beff.zip
+  ROM_NAME: OxygenOS
   TZ: Asia/Zhejiang
 
 jobs:
@@ -51,7 +51,7 @@ jobs:
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME -ab
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME  -ab
        
        - name: Zip GSI  
          run: |
