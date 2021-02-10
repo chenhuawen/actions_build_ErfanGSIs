@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://nchc.dl.sourceforge.net/project/dotos-downloads/dot11/raphael/gapps/dotOS-R-v5.0.0-raphael-GAPPS-20210208-0626.zip
+  ROM_URL: https://nchc.dl.sourceforge.net/project/dotos-downloads/dot11/raphael/vanilla/dotOS-R-v5.0.0-raphael-OFFICIAL-20210208-0532.zip
   ROM_NAME: Generic Pixel 
   TZ: Asia/Shanghai
 
