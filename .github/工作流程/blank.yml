@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://download.c.realme.com/osupdate/RMX1851_11_OTA_1120_all_wloHLd7c8w5w.ozip
-  ROM_NAME: RealmeUI
+  ROM_NAME: RealmeUI10
   TZ: Asia/Shanghai
 
 jobs:
@@ -58,37 +58,4 @@ jobs:
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSIS.zipname: CI
-
-# Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+              ./transfer wet ./final/GSIS.zipname: Realmeui10OS-AB-GSIS.img
