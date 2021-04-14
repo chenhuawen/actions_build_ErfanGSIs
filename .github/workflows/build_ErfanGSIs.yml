@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210205155107/PBDM00_11_OTA_3160_all_re9fhqD7Bh1r.ozip
-  ROM_NAME: OPPO
+  ROM_URL: https://download.c.realme.com/osupdate/RMX1851_11_OTA_1120_all_wloHLd7c8w5w.ozip
+  ROM_NAME: RealmeUI
   TZ: Asia/Shanghai
 
 jobs:
