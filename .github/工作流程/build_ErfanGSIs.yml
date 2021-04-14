@@ -20,7 +20,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu20.10
+    runs-on: ubuntu20.04.2
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
