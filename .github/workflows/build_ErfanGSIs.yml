@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.meizu.com/Firmware/Flyme/meizu17_Pro/9.21.4.13/cn_daily/20210413103540/c48e3599/update.zip
-  ROM_NAME: Generic Pixel
+  ROM_URL: https://bigota.d.miui.com/21.4.7/miui_GINKGO_21.4.7_0df3126c96_11.0.zip
+  ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
 jobs:
@@ -53,12 +53,17 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
-       - name: Zip GSI  
+       - name: Zip Aonly and upload  
          run: |
               mkdir final
-              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
-       
-       - name: Upload GSI to BitSend
-         run: |
+              sudo chmod -R 777 ErfanGSIs/output
+              zip -r ErfanGSIs/output/$ZIP_MIUI-GSI-Aonly.7z ErfanGSIs/output/*-Aonly-*.img
               curl -sL https://git.io/file-transfer | sh
-              ./transfer gof final/GSI.zip
+              ./transfer $MIR ErfanGSIs/output/$ZIP_MIUI-GSI-Aonly.zip
+       - name: Zip AB and upload 
+         run: |
+              zip -r ErfanGSIs/output/$ZIP_MIUI-GSI-AB.7z ErfanGSIs/output/*-AB-*.img
+              ./transfer $MIR ErfanGSIs/output/$ZIP_MIUI-GSI-AB.zip      
+       - name: Print build info
+         run: |
+              cat ErfanGSIs/output/*-Aonly-*.txt
