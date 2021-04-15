@@ -15,13 +15,13 @@ on:
     
 env:
   ROM_URL: https://download.meizu.com/Firmware/Flyme/meizu17_Pro/9.21.4.13/cn_daily/20210413103540/c48e3599/update.zip
-  ROM_NAME: Flyme
-  ZIP_NAME: Flyme
+  ROM_NAME: Generic Pixel
   TZ: Asia/Shanghai
-  MIR: bit
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
        - name: Checkout
@@ -56,14 +56,9 @@ jobs:
        - name: Zip GSI  
          run: |
               mkdir final
-              sudo chmod -R 777 ErfanGSIs/output
-              zip -r ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z ErfanGSIs/output/*-Aonly-*.img
+              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+       
+       - name: Upload GSI to BitSend
+         run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z
-       - name: Upload GSI to BitSend 
-         run: |
-              zip -r ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z ErfanGSIs/output/*-AB-*.img
-              ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z      
-       - name: Print build info
-         run: |
-              cat ErfanGSIs/output/*-Aonly-*.txt
+              ./transfer gof final/GSI.zip
