@@ -42,7 +42,7 @@ jobs:
             sudo -E apt-get -qq install git openjdk-8-jdk wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/JamieHoSzeYui/ErfanGSIs
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
        
        - name: Setting up ErfanGSI requirements
          run: |
@@ -50,17 +50,17 @@ jobs:
               cd ErfanGSIs
               sudo bash setup.sh
        
-       - name: Download Stock Rom & Generate GSIS
+       - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
-       - name: Zip Aonly and upload  
+       - name: Zip GSI  
          run: |
               mkdir final
               sudo chmod -R 777 ErfanGSIs/output
               zip -r ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z ErfanGSIs/output/*-Aonly-*.img
               curl -sL https://git.io/file-transfer | sh
               ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z
-       - name: Zip AB and upload 
+       - name: Upload GSI to BitSend 
          run: |
               zip -r ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z ErfanGSIs/output/*-AB-*.img
               ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z      
