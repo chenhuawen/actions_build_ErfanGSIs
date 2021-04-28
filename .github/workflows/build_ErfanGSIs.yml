@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/21.4.26/miui_GINKGO_21.4.26_df8c060deb_11.0.zip
-  ROM_NAME: MIUI
+  ROM_URL: https://download.c.realme.com/osupdate/RMX1851_11_OTA_1130_all_iuygSyEV1LmI.ozip
+  ROM_NAME: realme UI
   TZ: Asia/Shanghai
 
 jobs:
