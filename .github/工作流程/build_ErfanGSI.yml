@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.meizu.com/Firmware/Flyme/meizu17_Pro/9.21.4.13/cn_daily/20210413103540/c48e3599/update.zip
-  ROM_NAME: FlymeOS
+  ROM_URL:  https://download.c.realme.com/osupdate/RMX1851_11_OTA_1130_all_iuygSyEV1LmI.ozip
+  ROM_NAME: realmeUI
   TZ: Asia/Shanghai
 
 jobs:
@@ -51,7 +51,7 @@ jobs:
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSIS
-         run: sudo ./ErfanGSIs/url2GSI.sh $Flyme9-AB-11-huawen-gsis.img $Flyme9-21.4.13.zip
+         run: sudo ./ErfanGSIs/url2GSI.sh -c -b $ROM_URL $ROM_NAME
        
        - name: Zip GSIS  
          run: |
@@ -61,4 +61,4 @@ jobs:
        - name: Upload GSIS to BitSend
          run: |
               curl -sL https://git.io/system-transfer | sh
-              ./transfer bit system/GSIS.zip
+              ./transfer wet system/GSIS.zip
