@@ -1,4 +1,4 @@
-name: 8build_ErfanGSIs
+name: build_ErfanGSIs
 
 on:
 #  release:
@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.c.realme.com/osupdate/RMX1851_11_OTA_1130_all_iuygSyEV1LmI.ozip
-  ROM_NAME: realme UI
+  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210319142740/PCHM10_11_OTA_1760_all_jtUCSkUpYgoK.ozip
+  ROM_NAME: ColorOS
   TZ: Asia/Shanghai
 
 jobs:
@@ -53,12 +53,23 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
-       - name: Zip GSI  
+       - name: 7zip GSI_AB  
          run: |
+              sudo apt-get install p7zip
+              cd /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs
               mkdir final
-              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
-       
-       - name: Upload GSI to BitSend
+              7z a -t7z -r final/GSI_AB.7z ErfanGSIs/output/*AB*
+
+       - name: Upload GSI_AB to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet final/GSI.zip
+              ./transfer wet final/GSI_AB.7z
+    
+       
+       - name: 7zip GSI_Aonly  
+         run: |
+              7z a -t7z -r final/GSI_Aonly.7z ErfanGSIs/output/*Aonly*
+    
+       - name: Upload GSI_Aonly to WeTransfer
+         run: |
+              ./transfer wet final/GSI_Aonly.7z 
