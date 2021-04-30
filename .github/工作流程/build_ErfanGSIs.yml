@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.meizu.com/Firmware/Flyme/meizu17_Pro/9.21.4.13/cn_daily/20210413103540/c48e3599/update.zip
-  ROM_NAME: FlymeOS
+  ROM_URL: https://www.coolapk.com/link?url=https%3A%2F%2Fdownload.meizu.com%2FFirmware%2FFlyme%2F16s_Pro%2F9.21.4.29%2Fcn_daily%2F20210429002119%2F889a2ad5%2Fupdate.zip
+  ROM_NAME: Flyme
   TZ: Asia/Shanghai
 
 jobs:
@@ -26,42 +26,36 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@master
-       
-       - name: Clean Up
-         run: |
-           docker rmi `docker images -q`
-           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
-           sudo -E apt-get -y git* m4* curl* gcc* g++* Python* purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-           sudo -E apt-get update
-           sudo -E apt-get -y autoremove --purge
-           sudo -E apt-get clean 
            
        - name: Initialization environment
          run: |
-            sudo -E apt-get -qq update
-            sudo -E apt-get -qq install git openjdk-11-jdk wget
+            sudo -E apt-get -qq install git openjdk-8-jdk wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
+         
+       - name: Fix exit
+         run: |
+              sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
+              sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
        - name: Setting up ErfanGSI requirements
          run: |
-              sudo chmod -R 777 ErfanGSIs
               cd ErfanGSIs
+              mkdir ./output
               sudo bash setup.sh
        
-       - name: Download Stock Rom & Generate GSIS
-         run: sudo ./ErfanGSIs/url2GSI.sh $Flyme9-AB-11-huawen-gsis.img $Flyme9-21.4.13.zip
+       - name: Download Stock Rom & Generate GSI
+         run: sudo ./ErfanGSIs/url2GSI.sh -c -b $ROM_URL $ROM_NAME
        
-       - name: Zip GSIS  
+       - name: Zip GSI  
          run: |
-              mkdir system
-              zip -r system/GSIS.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+              cd $GITHUB_WORKSPACE/ErfanGSIs/output
+              mkdir final
+              zip -r final/GSI.zip ./*
        
-       - name: Upload GSIS to BitSend
+       - name: Upload GSI to BitSend
          run: |
-              curl -sL https://git.io/system-transfer | sh
-              ./transfer bit system/GSIS.zip
-
-         
-            
+              cd $GITHUB_WORKSPACE/ErfanGSIs/output
+              curl -sL https://git.io/file-transfer | sh
+              ./transfer wet ./final/GSI.zip
