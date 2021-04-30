@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.meizu.com/Firmwra/Flyme/16T/9.21.4.24/cn_daily/20210424183408/2ad0501f/update.zip
-  ROM_NAME: update.zip
+  ROM_URL: https://bigota.d.miui.com/V12.0.13.0.QJQCNXM/miui_LIME_V12.0.13.0.QJQCNXM_c736f457e3_10.0.zip
+  ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
 jobs:
