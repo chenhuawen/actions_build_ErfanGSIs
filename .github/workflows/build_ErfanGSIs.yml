@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/21.4.22/miui_LAVENDER_21.4.22_6bbb89d224_10.0.zip
-  ROM_NAME: MIUI
+  ROM_URL: https://www.coolapk.com/link?url=https%3A%2F%2Fdownload.meizu.com%2FFirmware%2FFlyme%2F16s%2F9.21.4.29%2Fcn_daily%2F20210429002018%2Fc0aa61fe%2Fupdate.zip
+  ROM_NAME: Flyme
   TZ: Asia/Shanghai
 
 jobs:
