@@ -14,9 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210426170234/PBEM00_11_OTA_3210_all_7OKRjyFj9w6s.ozip",
-  ROM_NAME: ColorOS
-  ZIP_NAME: PBEM00_11_OTA_3210_all_7OKRjyFj9w6s.ozip
+  ROM_URL: https://www.coolapk.com/link?url=https%3A%2F%2Fdownload.meizu.com%2FFirmware%2FFlyme%2F16s_Pro%2F9.21.4.29%2Fcn_daily%2F20210429002119%2F889a2ad5%2Fupdate.zip",
+  ROM_NAME: Flyme
   TZ: Asia/Shanghai
 
 jobs:
