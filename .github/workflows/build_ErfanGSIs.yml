@@ -14,9 +14,9 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210319142740/PCHM10_11_OTA_1760_all_jtUCSkUpYgoK.ozip",
+  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210426170234/PBEM00_11_OTA_3210_all_7OKRjyFj9w6s.ozip",
   ROM_NAME: ColorOS
-  ZIP_NAME: OPPOR17
+  ZIP_NAME: PBEM00_11_OTA_3210_all_7OKRjyFj9w6s.ozip
   TZ: Asia/Shanghai
 
 jobs:
