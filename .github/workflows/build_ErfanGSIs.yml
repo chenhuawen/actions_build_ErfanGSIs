@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.meizu.com/Firmware/Flyme/16s_Pro/9.21.4.29/cn_daily/20210429002119/889a2ad5/update.zip",
+  ROM_URL: https://8d98d2sg.v1d.szbdyd.com:24200/fusion001004.a.bdydns.com/0/Firmware/Flyme/16s_Pro/9.21.4.29/cn_daily/20210429002119/889a2ad5/update.zip",
   ROM_NAME: Flyme
   TZ: Asia/Shanghai
 
