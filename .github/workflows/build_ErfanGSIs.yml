@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_VIOLET_21.4.21_ddb47e165d_10.0.zip",
-  ROM_NAME: miui_VIOLET_21.4.21_ddb47e165d_10.0.zip
+  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210121210341/PBBM00_11_OTA_1190_all_sl78thNiVmQP.ozip
+  ROM_NAME: ColorOS
   TZ: Asia/Shanghai
 
 jobs:
