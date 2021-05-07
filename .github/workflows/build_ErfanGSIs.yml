@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://fsopen.coloros.com/3/oppowww/androidrom/pchm10/PCHM10_11_OTA_0490_all_KzTHFyBgTw18.ozip
-  ROM_NAME: ColorOS
+  ROM_URL: https://download.c.realme.com/osupdate/RMX1991_11_OTA_1270_all_0TysfnWoknoq.ozip
+  ROM_NAME: realme UI
   TZ: Asia/Shanghai
 
 jobs:
