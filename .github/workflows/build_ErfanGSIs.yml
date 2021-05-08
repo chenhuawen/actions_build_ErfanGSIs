@@ -54,7 +54,7 @@ jobs:
               mkdir final
               zip -r final/MIUI12.5-MI9CCE-AB-SGSI.7z ./*
        
-       - name: Upload GSI to /6yun
+       - name: Upload GSI to 6yun
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
-              curl -sL https://6yun.cc |/MIUI12.5-MI9CCE-AB-10-2021.05.08--SGSI.7z
+              curl -sL https://6yun.cc |SGSI.7z
