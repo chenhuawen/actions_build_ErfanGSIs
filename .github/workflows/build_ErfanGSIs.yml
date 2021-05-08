@@ -48,14 +48,14 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh -c -b $ROM_URL $ROM_NAME
        
-       - name: Zip GSI  
+       - name: 7Z GSI  
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
-              zip -r final/GSI.zip ./*
+              zip -r final/MIUI12.5-MI9CCE-AB-SGSI.7z ./*
        
        - name: Upload GSI to BitSend
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
-              curl -sL https://git.io/file-6yun.cc | sh
-              ./6yun.cc Bit ./final/GSI.zip
+              curl -sL https://6yun.cc | sh
+              ./6yun.cc ./final/MIUI12.5-MI9CCE-AB-10-2021.05.08--SGSI.7z
