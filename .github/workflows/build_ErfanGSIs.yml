@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_VIOLET_21.4.21_ddb47e165d_10.0.zip
+  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_LAURUS_21.4.21_25f88a5ec1_10.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -57,5 +57,5 @@ jobs:
        - name: Upload GSI to BitSend
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
-              curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.zip
+              curl -sL https://git.io/file-6yun.cc | sh
+              ./6yun.cc Bit ./final/GSI.zip
