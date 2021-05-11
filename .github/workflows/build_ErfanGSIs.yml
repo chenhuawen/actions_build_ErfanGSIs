@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.c.realme.com/osupdate/RMX1851_11_OTA_1130_all_iuygSyEV1LmI.ozip
-  ROM_NAME: realmeUI
+  ROM_URL: https://download.meizu.com/Firmware/Flyme/16T/9.21.5.8/cn_daily/20210508003530/decfa0ac/update.zip
+  ROM_NAME: Flyme
   TZ: Asia/Shanghai
 
 jobs:
