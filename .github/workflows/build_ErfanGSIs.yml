@@ -48,14 +48,14 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh -c -b $ROM_URL $ROM_NAME
        
-       - name: Zip GSI  
+       - name: 7Z GSI  
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
-              zip -r final/GSI.zip ./*
+              zip -r final/GSI.7z ./*
        
        - name: Upload GSI to BitSend
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.zip
+              ./transfer wet ./final/GSI.7z
