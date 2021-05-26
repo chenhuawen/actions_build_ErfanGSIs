@@ -39,11 +39,11 @@ jobs:
               sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
               sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements with Xiaoxin script
+       - name: Setting up ErfanGSI  with Xiaoxin script
          run: |
               cd ErfanGSIs
               mkdir ./output
-              wget https://github.com/chenhuawen/actions_build_SGSI/blob/main/bin/setup.sh -o setup-xiaoxin.sh
+              wget https://raw.github.com/chenhuawen/actions_build_SGSI/blob/main/bin/setup.sh -o setup-xiaoxin.sh
               sudo bash setup-xiaoxin.sh
        
        - name: Download Stock Rom & Generate GSI
