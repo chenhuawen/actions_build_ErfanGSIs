@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_LAURUS_21.4.21_25f88a5ec1_10.0.zip
+  ROM_URL: http://bigota.d.miui.com/20.4.27/miui_MIMIX3_20.4.27_8f7879221b_10.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -29,7 +29,7 @@ jobs:
            
        - name: Initialization environment
          run: |
-            sudo -E apt-get -qq install git openjdk-8-jdk wget
+            sudo -E apt-get -qq install git wget
        
        - name: Clone ErfanGSI Source Code
          run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
@@ -39,23 +39,24 @@ jobs:
               sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
               sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements
+       - name: Setting up ErfanGSI requirements with Xiaoxin script
          run: |
               cd ErfanGSIs
               mkdir ./output
-              sudo bash setup.sh
+              wget https://raw.githubusercontent.com/TimeMapleLing/actions_build_SGSI/main/bin/setup.sh -o setup-xiaoxin.sh
+              sudo bash setup-xiaoxin.sh
        
        - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh -c -b $ROM_URL $ROM_NAME
        
-       - name: 7Z GSI  
+       - name: Zip GSI  
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
-              7z -r final/GSI.7z ./*
+              zip -r final/GSI.zip ./*
        
-       - name: Upload GSI to BitSend
+       - name: Upload GSI to WeTransfer
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.7z
+              ./transfer wet ./final/GSI.zip
