@@ -52,7 +52,7 @@ jobs:
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
-              zip -r final/GSI.7z ./*
+              7z -r final/GSI.7z ./*
        
        - name: Upload GSI to BitSend
          run: |
