@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://cdn-test-ota.blackshark.com/DLT-A0/20210507105110-darklighter-ota-signed_by_xiaomi_2bcb1105a058e6a258859cbf64cb86a1.zip
-  ROM_NAME: MIUI
+  ROM_NAME: JOYUI
   TZ: Asia/Shanghai
 
 jobs:
@@ -49,18 +49,18 @@ jobs:
               sudo chmod -R 777 ErfanGSIs
               cd ErfanGSIs
               sudo bash setup.sh
-              sudo sed - i '7c AB=true' url2GSI.sh
-              sudo sed  -i  '8c Aonly=false ' url2GSI.sh
        
        - name: Download Stock Rom & Generate GSI
-         run:  sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
+         run:  sudo ./ErfanGSIs/url2GSI.sh -c -b $ROM_URL $ROM_NAME
        
        - name: Zip GSI  
          run: |
+                cd $GITHUB_WORKSPACE/ErfanGSIs/output
                 mkdir final
-                 zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+                zip -r final/GSI.zip ./*
        
        - name: Upload GSI to BitSend
          run: |
-               curl -sL https://git.io/file-transfer | sh
-               ./transfer wet final/GSI.zip
+                cd $GITHUB_WORKSPACE/ErfanGSIs/output
+                  curl -sL https://git.io/file-transfer | sh
+                ./transfer wet ./final/GSI.zip
