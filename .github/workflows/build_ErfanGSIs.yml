@@ -55,10 +55,12 @@ jobs:
        
        - name: Zip GSI  
          run: |
-              mkdir final
-              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+               cd $GITHUB_WORKSPACE/ErfanGSIs/output
+               mkdir final
+               zip -r final/GSI.zip ./*
        
        - name: Upload GSI to BitSend
          run: |
+              cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet final/GSI.zip
+              ./transfer wet ./final/GSI.zip
