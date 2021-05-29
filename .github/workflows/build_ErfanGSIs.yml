@@ -1,4 +1,4 @@
-name: 8build_ErfanGSIs
+name: build_ErfanGSIs
 
 on:
 #  release:
@@ -56,7 +56,7 @@ jobs:
        - name: Zip GSI  
          run: |
               mkdir final
-              zip -r final/GSI.zip /actions_build_ErfanGSIs/ErfanGSIs/output/
+              zip -r final/GSI.zip./*
        
        - name: Upload GSI to wetransfer
          run: |
