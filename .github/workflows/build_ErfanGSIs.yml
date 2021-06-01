@@ -39,7 +39,7 @@ jobs:
        - name: Initialization environment
          run: |
             sudo -E apt-get -qq update
-            sudo -E apt-get -qq install git openjdk-8-jdk wget
+            sudo -E apt-get -qq install git openjdk-11-jdk wget
        
        - name: Clone ErfanGSI Source Code
          run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
@@ -58,7 +58,7 @@ jobs:
          run: |
               sudo apt-get install p7zip
               mkdir final
-              7z a -t7z -r final/GSI_AB.7z/home/runner/work/actions_build_ErfanGSIs ErfanGSIs/output/*AB*
+              7z a -t7z -r final/GSI_AB.7z /home/runner/work/actions_build_ErfanGSIs ErfanGSIs/output/*AB*
               
        - name: Upload GSI_AB to WeTransfer
          run: |
