@@ -61,5 +61,5 @@ jobs:
               
        - name: Upload GSI to WeTransfer
          run: | 
-               curl -sL https://gofile.io/file-transfer | sh
-               ./transfer gof /final/GSI.7z
+               curl -sL https://git.io/file-transfer | sh
+               ./transfer wet ./final/GSI.7z
