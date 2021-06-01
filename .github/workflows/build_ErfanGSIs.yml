@@ -30,7 +30,6 @@ jobs:
        - name: Clean Up
          run: |
            docker rmi `docker images -q`
-           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
            sudo -E apt-get update
            sudo -E apt-get -y autoremove --purge
@@ -52,13 +51,13 @@ jobs:
        
        - name: Download Stock Rom & Generate GSI
          run: |
-              sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+              sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME -ab
        
        - name: 7zip GSI_AB  
          run: |
               sudo apt-get install p7zip
               mkdir final
-              7z a -t7z -r final/GSI_AB.7z
+              7z a -t7z -r final/GSI_AB.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
               
        - name: Upload GSI_AB to WeTransfer
          run: |
