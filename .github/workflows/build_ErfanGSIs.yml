@@ -52,12 +52,13 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: |
               sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME -ab
+              cd /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*AB*
        
        - name: 7zip GSI_AB  
          run: |
               sudo apt-get install p7zip
               mkdir final
-              7z a -t7z -r final/GSI_AB.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+              7z a -t7z -r final/GSI_AB.7z 
               
        - name: Upload GSI_AB to WeTransfer
          run: |
