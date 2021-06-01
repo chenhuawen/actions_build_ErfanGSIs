@@ -58,7 +58,9 @@ jobs:
               mkdir final
               7za a -t7z -r final/GSI.7z ./*
               du -sh final/GSI.7z
+              
        - name: Upload GSI to WeTransfer
          run: |
-              curl -sL https://git.io/file-transfer | sh
-              ./transfer bit ./final/GSI.7z
+               cd $GITHUB_WORKSPACE/ErfanGSIs/output 
+               curl -sL https://git.io/file-transfer | sh
+               ./transfer gof /final/GSI.7z
