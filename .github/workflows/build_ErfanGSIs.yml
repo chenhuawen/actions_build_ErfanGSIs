@@ -58,7 +58,7 @@ jobs:
          run: |
               sudo apt-get install p7zip
               mkdir final
-              7z a -t7z -r final/GSI_AB.7z /home/runner/work/actions_build_ErfanGSIs ErfanGSIs/output/*AB*
+              7z a -t7z -r final/GSI_AB.7z /home/runner/work/actions_build_ErfanGSIs ErfanGSIs/output/GSI_AB.7z
               
        - name: Upload GSI_AB to WeTransfer
          run: |
