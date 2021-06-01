@@ -51,14 +51,14 @@ jobs:
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
+         run: |
+              sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
        - name: 7zip GSI_AB  
          run: |
               sudo apt-get install p7zip
-              cd /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs
               mkdir final
-              7z a -t7z -r final/GSI_AB.7z ErfanGSIs/output/*AB*
+              7z a -t7z -r final/GSI_AB.7z/home/runner/work/actions_build_ErfanGSIs ErfanGSIs/output/*AB*
               
        - name: Upload GSI_AB to WeTransfer
          run: |
