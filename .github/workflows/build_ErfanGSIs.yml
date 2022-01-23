@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/V12.5.5.0.QFMCNXM/miui_LAURUS_V12.5.5.0.QFMCNXM_eb006da5b1_10.0.zip
-  ROM_NAME: MIUI
+  ROM_URL: https://hugeota.d.miui.com/21.11.17/miui_TUCANA_21.11.17_83e412f5d4_11.0.zip
+  ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
