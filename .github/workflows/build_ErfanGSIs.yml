@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://down.wss1.cn/wcnxxb4/7/lv/7lvrwcnxxb4?cdn_sign=1647692177-16-0-94b77e9606c30cfe7f32988008a2d759&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22PAFM00_11_OTA_3270_all_ZsB7LzXH0Ct8.zip%22%3B%20filename%2A%3Dutf-8%27%27PAFM00_11_OTA_3270_all_ZsB7LzXH0Ct8.ziphttps://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD1914_A_8.8.20-update-full_1643163810.zip
-  ROM_NAME: MIUI
+  ROM_URL: https://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD2140_A_1.9.2-update-full_1643184071.zip
+  ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
