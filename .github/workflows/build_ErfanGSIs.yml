@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://hugeota.d.miui.com/V13.0.4.0.SLDCNXM/miui_PSYCHE_V13.0.4.0.SLDCNXM_b659da9358_12.0.zip
-  ROM_NAME: MIUI
+  ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
