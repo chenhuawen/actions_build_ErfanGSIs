@@ -16,7 +16,7 @@ on:
 env:
   ROM_URL: https://bigota.d.miui.com/V12.5.1.0.QCMCNXM/miui_PINE_V12.5.1.0.QCMCNXM_32a52dde99_10.0.zip
   ROM_NAME: MIUI
-  BUILD_TYPE: AB
+  BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
 jobs:
