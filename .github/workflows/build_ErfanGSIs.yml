@@ -1,64 +1,64 @@
-name: build_ErfanGSIs
+name :build_ErfanGSIs
 
-on:
-#  release:
-#    types: [published]
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - '.config'
-#  schedule:
-#    - cron: 0 8 * * 5
-  watch:
-    types: [started]
+on :
+# release:
+# types: [published]
+# push:
+# branches:
+# - master
+# paths:
+# - '.config'
+# schedule:
+# - cron: 0 8 * * 5
+  watch :
+    types : [ started]
     
-env:
-  ROM_URL: https://bigota.d.miui.com/V12.5.1.0.QCMCNXM/miui_PINE_V12.5.1.0.QCMCNXM_32a52dde99_10.0.zip
-  ROM_NAME: MIUI
-  BUILD_TYPE: ab
-  TZ: Asia/Shanghai
+env :
+  ROM_URL : https://download.h2os.com/OnePlus6T/MP/OnePlus6THydrogen_34.K.61_OTA_0610_all_2109280613_c8da429bc7e74e24.zip
+  ROM_NAME :h2os
+  BUILD_TYPE :ab
+  TZ :Asia/Shanghai
 
-jobs:
-  build:
-    runs-on: ubuntu-18.04
-    if: github.event.repository.owner.id == github.event.sender.id
+jobs :
+  build :
+    runs-on :ubuntu-18.04
+    if :github.event.repository.owner.id == github.event.sender.id
 
-    steps:
-       - name: Checkout
-         uses: actions/checkout@master
+    steps :
+       - name :Checkout
+         uses :actions/checkout@master
            
-       - name: Initialization environment
-         run: |
+       - name :Initialization environment
+         run : |
             sudo -E apt-get -qq install git wget
        
-       - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
+       - name :- name: Clone ErfanGSI Source Code
+         run:          run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
          
-       - name: Fix exit
+       - name:        - name: Fix exit
          run: |
               sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
               sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements
+       - name:        - name: Setting up ErfanGSI requirements
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs
               mkdir ./output
               sudo bash ./setup.sh
        
-       - name: Download Stock Rom & Generate GSI
-         run: |
-              cd  $GITHUB_WORKSPACE/ErfanGSIs
+       - name       - - name:Download Stock Rom & Generate GSI
+         run : |
+              cd $GITHUB_WORKSPACE/ErfanGSIs
               sudo bash ./url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
        
-       - name: Zip GSI  
+       - name :- name: Zip GSI  
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
               zip -r final/GSI.zip ./*
        
-       - name: Upload GSI to WeTransfer
-         run: |
+       - name       - - name:Upload GSI to WeTransfer
+         run : |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
               ./transfer wet ./final/GSI.zip
