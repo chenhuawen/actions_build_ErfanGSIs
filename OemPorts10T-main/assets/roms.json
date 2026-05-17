@@ -1,0 +1,44 @@
+[
+  {
+    "id": "myui",
+    "title": "Moto MYUI",
+    "image": "assets/res/myui.png",
+    "description": "Motorola's MYUI Ports.",
+    "releases": "assets/roms/myui.json"
+  },
+  {
+    "id": "coloros",
+    "title": "ColorOS",
+    "image": "assets/res/cos.png",
+    "description": "ColorOS Ports.",
+    "releases": "assets/roms/coloros.json"
+  },
+  {
+    "id": "oxygenos",
+    "title": "OxygenOS",
+    "image": "assets/res/oos.png",
+    "description": "OxygenOS Ports.",
+    "releases": "assets/roms/oxygenos.json"
+  },
+  {
+    "id": "nothingos",
+    "title": "NothingOS",
+    "image": "assets/res/nos.png",
+    "description": "NothingOS Ports.",
+    "releases": "assets/roms/nothingos.json"
+  },
+  {
+    "id": "helloui",
+    "title": "Moto HelloUI",
+    "image": "assets/res/helloui.png",
+    "description": "Motorola's HelloUI Ports.",
+    "releases": "assets/roms/helloui.json"
+  },
+  {
+    "id": "flymeos",
+    "title": "FlymeOS",
+    "image": "assets/res/flyme.png",
+    "description": "Meizu's FlymeOS Ports.",
+    "releases": "assets/roms/flymeos.json"
+  }
+]

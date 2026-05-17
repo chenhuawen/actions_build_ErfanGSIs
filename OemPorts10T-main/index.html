@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OEM Ports by Danda</title>
+  <link rel="icon" type="image/png" href="assets/res/ic.png" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <header class="p-6 shadow-md header-container">
+    <div class="flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold">OEM ROM Ports & Kernel</h1>
+        <p class="subtitle">for Xiaomi Devices</p>
+      </div>
+    </div>
+    <!-- Nav -->
+    <div class="flex border-b mt-4 nav-divider">
+      <button class="tab-btn active px-4 py-2 font-medium text-sm" data-tab="roms">ROMs</button>
+      <button class="tab-btn px-4 py-2 font-medium text-sm" data-tab="kernels">Kernels</button>
+      <button class="tab-btn px-4 py-2 font-medium text-sm" data-tab="flashing">Flashing Guide</button>
+    </div>
+  </header>
+
+  <div id="infoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="card rounded-xl shadow-lg w-11/12 max-w-3xl max-h-[90vh] flex flex-col">
+      <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+        <h3 class="text-lg font-semibold">ROM Info</h3>
+        <button onclick="closeModal()" class="text-gray-500 hover:text-red-500 text-2xl font-bold">&times;</button>
+      </div>
+      <div id="modalContent" class="overflow-y-auto flex-1 p-4"></div>
+    </div>
+  </div>
+
+
+  <main class="p-6">
+    <div class="tab-content-container">
+      <!-- ROMs -->
+      <div id="roms-tab" class="tab-content active">
+        <section id="roms-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></section>
+      </div>
+      <!-- Kernels -->
+      <div id="kernels-tab" class="tab-content hidden">
+        <section id="kernels-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></section>
+      </div>
+      <!-- Flashing Guide -->
+      <div id="flashing-tab" class="tab-content hidden">
+        <section id="flashing-container" class="prose dark:prose-invert max-w-none">
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-sm p-6 mt-8 footer-container">
+    <div class="flex flex-col space-y-1">
+      <div>&copy; 2026 Danda - OemPorts10T</div>
+      <div>
+        <a href="https://t.me/ProjectUnknown01" class="hover:underline">Telegram Channel</a>
+        <span> | </span>
+        <a href="https://t.me/OemPorts10T" class="hover:underline">Telegram Group</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
